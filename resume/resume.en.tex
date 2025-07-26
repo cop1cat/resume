@@ -1,70 +1,71 @@
-
 \documentclass{resume}
 \usepackage[english]{babel}
-\usepackage[left=0.4in,top=0.4in,right=0.4in,bottom=0.4in]{geometry} % Document margins
-\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.4in,top=0.4in,right=0.4in,bottom=0.4in]{geometry}
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \name{Daniel Spiridonov}
-\address{+7(936) 505-1245 \\ Moscow, Russia} 
-\address{\href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru} \\ \href{https://github.com/notaskynet}{github.com/notaskynet}}  %
+\address{+7(936) 505-1245 \\ Moscow, Russia}
+\address{\href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru} \\ \href{https://github.com/cop1cat}{github.com/cop1cat}}
+
 \begin{document}
 
 %----------------------------------------------------------------------------------------
 %	ABOUT ME
 %----------------------------------------------------------------------------------------
 \begin{rSection}{ABOUT ME}
-DS/MLE with experience in designing and deploying data pipelines, implementing ML models in production environments and integrating differenent systems for model serving. Continuously improving technical skills and participating in hackathons and personal projects.
-
+Specialist in machine learning and data analysis. Experience in deploying models and pipelines to production. Participated in projects and hackathons.
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
+%	EDUCATION
 %----------------------------------------------------------------------------------------
 \begin{rSection}{EDUCATION}
-{\bf Specialist degree, "Computer Security" Program \\ National Research University Higher School of Economics (HSE)}, \hfill {Expected 2028}\\
-\textit{Moscow Institute of Electronics and Mathematics} 
+{\bf Specialist Degree, "Computer Security" \\ National Research University Higher School of Economics (HSE)}, \hfill {2022-2028}\\
+\textit{Moscow Institute of Electronics and Mathematics}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-% TECHNICAL SKILLS	
+%	TECHNICAL SKILLS
 %----------------------------------------------------------------------------------------
 \begin{rSection}{TECHNICAL SKILLS}
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Programming: & Python, C++ \\
+Programming languages: & Python, C++ \\
 Machine Learning: & CatBoost, XGBoost, Transformers, LangChain, PyTorch, Scikit-Learn \\
 Data Analytics: & Pandas, NumPy, SQL \\
-ML Ops: & Docker, Git, Airflow, MLflow, CI/CD \\
+ML Ops: & Docker, Git, Airflow, MLflow, GitLab CI/CD, monitoring (Prometheus, Grafana) \\
 \end{tabular}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-% EXPERIENCE
+%	WORK EXPERIENCE
 %----------------------------------------------------------------------------------------
 \begin{rSection}{WORK EXPERIENCE}
 
 \textbf{ML Engineer}  
 \textit{RT-Information Security} | Dec 2024 – Present  
 \begin{itemize}
-    \itemsep -3pt {} 
-    \item Developed and deployed machine learning models for information security incident management.
-    \item Designed and implemented data collection and processing pipelines.
-    \item Built data quality verification systems to ensure reliable data for ML tasks.
+    \itemsep -3pt {}
+    \item Development and implementation of ML models for automating SOC center processes.
+    \item Design and implementation of data collection and enrichment systems for model operation.
+    \item Deployment of infrastructure components for production model operation.
+    \item Documentation automation and metrics monitoring.
 \end{itemize}
 
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-% PROJECTS
+%	PROJECTS
 %----------------------------------------------------------------------------------------
-
 \begin{rSection}{PROJECTS}
 
-\textbf{Claw Engine: Artificial Intelligence Module}  
+\textbf{Claw Engine: AI Module}  
 \textit{HSE}  
 \begin{itemize}
-    \itemsep -3pt {} 
-    \item Contributed to the development of a library for training agents in Unity and its integration into Claw Engine.
-    \item Developed a review summarizer within the AI module, analyzing reviews and providing structured content in bullet points, using LangChain for natural language processing.
+    \itemsep -3pt {}
+    \item Developed a library for training game agents using SAC and integrated it into Unity.
+    \item Created a service for summarizing game reviews for game designers.
 \end{itemize}
 
 \end{rSection}
