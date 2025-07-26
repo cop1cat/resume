@@ -26,28 +26,28 @@ jobs:
         run: pdflatex -interaction=nonstopmode resume.ru.tex
 
       - name: Rename EN PDF
-        run: mv resume/resume.en.pdf resume/en.pdf
+        run: mv resume/resume.en.pdf resume/spiridonov_en.pdf
 
       - name: Rename RU PDF
-        run: mv resume/resume.ru.pdf resume/ru.pdf
+        run: mv resume/resume.ru.pdf resume/spiridonov_ru.pdf
 
       - name: Upload EN PDF Artifact
         uses: actions/upload-artifact@v4
         with:
           name: resume-en
-          path: resume/en.pdf
+          path: resume/spiridonov_en.pdf
 
       - name: Upload RU PDF Artifact
         uses: actions/upload-artifact@v4
         with:
           name: resume-ru
-          path: resume/ru.pdf
+          path: resume/spiridonov_ru.pdf
 
       - name: Prepare deploy folder
         run: |
           mkdir -p public
-          cp resume/en.pdf public/en.pdf
-          cp resume/ru.pdf public/ru.pdf
+          cp resume/spiridonov_en.pdf public/spiridonov_en.pdf
+          cp resume/spiridonov_ru.pdf public/spiridonov_ru.pdf
           touch public/.nojekyll
 
       - name: Upload to Pages Artifact
