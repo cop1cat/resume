@@ -10,7 +10,6 @@ on:
 
 jobs:
   build-en:
-    if: contains(github.event.head_commit.modified, 'resume/resume.en.tex') || contains(github.event.head_commit.modified, 'resume/resume.cls')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +36,6 @@ jobs:
           path: resume/en.pdf
 
   build-ru:
-    if: contains(github.event.head_commit.modified, 'resume/resume.ru.tex') || contains(github.event.head_commit.modified, 'resume/resume.cls')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
