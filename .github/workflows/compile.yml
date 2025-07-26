@@ -9,7 +9,7 @@ on:
       - 'resume/resume.cls'
 
 jobs:
-  build-en:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,34 +21,21 @@ jobs:
         working-directory: resume
         run: pdflatex -interaction=nonstopmode resume.en.tex
 
-      - name: Rename PDF
+      - name: Compile RU Resume
+        working-directory: resume
+        run: pdflatex -interaction=nonstopmode resume.ru.tex
+
+      - name: Rename EN PDF
         run: mv resume/resume.en.pdf resume/en.pdf
+
+      - name: Rename RU PDF
+        run: mv resume/resume.ru.pdf resume/ru.pdf
 
       - name: Upload EN PDF Artifact
         uses: actions/upload-artifact@v4
         with:
           name: resume-en
           path: resume/en.pdf
-
-      - name: Upload to Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: resume/en.pdf
-
-  build-ru:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install LaTeX
-        run: sudo apt-get update && sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-lang-cyrillic
-
-      - name: Compile RU Resume
-        working-directory: resume
-        run: pdflatex -interaction=nonstopmode resume.ru.tex
-
-      - name: Rename PDF
-        run: mv resume/resume.ru.pdf resume/ru.pdf
 
       - name: Upload RU PDF Artifact
         uses: actions/upload-artifact@v4
@@ -59,16 +46,16 @@ jobs:
       - name: Upload to Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: resume/ru.pdf
+          path: resume
 
   deploy:
-    needs: [build-en, build-ru]
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       pages: write
       id-token: write
     steps:
-      - name: Download Pages Artifacts
+      - name: Download Pages Artifact
         uses: actions/download-pages-artifact@v3
         with:
           path: public
