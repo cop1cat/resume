@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install LaTeX
-        run: sudo apt-get update && sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-lang-cyrillic
+        run: sudo apt-get update && sudo apt-get install -y texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-lang-cyrillic texlive-fonts-extra
 
       - name: Compile EN Resume
         working-directory: resume
