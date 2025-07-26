@@ -48,6 +48,7 @@ jobs:
           mkdir -p public
           cp resume/en.pdf public/en.pdf
           cp resume/ru.pdf public/ru.pdf
+          touch public/.nojekyll
 
       - name: Upload to Pages Artifact
         uses: actions/upload-pages-artifact@v3
