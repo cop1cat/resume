@@ -62,10 +62,5 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - name: Download Pages Artifact
-        uses: actions/download-pages-artifact@v3
-        with:
-          path: public
-
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
