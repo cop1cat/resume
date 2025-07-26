@@ -43,10 +43,16 @@ jobs:
           name: resume-ru
           path: resume/ru.pdf
 
+      - name: Prepare deploy folder
+        run: |
+          mkdir -p public
+          cp resume/en.pdf public/en.pdf
+          cp resume/ru.pdf public/ru.pdf
+
       - name: Upload to Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: resume
+          path: public
 
   deploy:
     needs: build
