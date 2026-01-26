@@ -1,0 +1,47 @@
+name: Build Resume
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Compile Russian resume
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: resume_ru.tex
+        working_directory: src
+    
+    - name: Compile English resume
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: resume_en.tex
+        working_directory: src
+    
+    - name: Create dist directory
+      run: mkdir -p dist
+    
+    - name: Move PDFs to dist
+      run: |
+        mv src/resume_ru.pdf dist/resume_ru.pdf
+        mv src/resume_en.pdf dist/resume_en.pdf
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: resumes
+        path: dist/*.pdf
+    
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
