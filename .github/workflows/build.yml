@@ -14,13 +14,14 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Compile Russian resume
-      uses: xu-cheng/latex-action@v2
+      uses: xu-cheng/latex-action@v3
       with:
         root_file: resume_ru.tex
         working_directory: src
+        compiler: xelatex
     
     - name: Compile English resume
-      uses: xu-cheng/latex-action@v2
+      uses: xu-cheng/latex-action@v3
       with:
         root_file: resume_en.tex
         working_directory: src
