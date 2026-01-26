@@ -34,7 +34,7 @@ jobs:
         mv src/resume_en.pdf dist/resume_en.pdf
     
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: resumes
         path: dist/*.pdf
