@@ -6,11 +6,16 @@
 \usepackage[english]{babel}
 
 % --- Page layout and formatting ---
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{parskip}
+
+% --- Remove paragraph indentation ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
 
 % --- Link colors ---
 \hypersetup{
@@ -25,36 +30,32 @@
   {}
   {0pt}
   {}
-  [\titlerule]
+  [\vspace{-8pt}\titlerule\vspace{2pt}]
 
-\titleformat{\subsection}
-  {\bfseries}
-  {}
-  {0pt}
-  {}
-
-\titlespacing{\section}{0pt}{1em}{0.5em}
-\titlespacing{\subsection}{0pt}{0.5em}{0.2em}
-\setlist[itemize]{leftmargin=1.2cm, itemsep=2pt}
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{leftmargin=5mm, itemsep=2pt, topsep=2pt}
 
 \begin{document}
 \pagestyle{empty}
 
 % --- Header ---
 \begin{center}
-{\LARGE \textbf{DANIIL SPIRIDONOV}}\\[6pt]
+{\huge \textbf{DANIIL SPIRIDONOV}}\\[4pt]
 Phone: +7 (936) 505-12-45 • Telegram: @daspiridonov\\
 \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}
 \end{center}
 
+\vspace{4pt}
+
 % --- Education ---
-\section*{EDUCATION}
+\section*{Education}
 \textbf{HSE University}, Computer Security Program\\
-2022 — present (expected graduation in 2028)
+2022 --- present (expected graduation in 2028)
 
 % --- Experience ---
-\section*{WORK EXPERIENCE}
-\textbf{RT-IB — ML Engineer}\hfill \textit{December 2024 — present}
+\section*{Work Experience}
+\textbf{RT-IB --- ML Engineer}\hfill \textit{December 2024 --- present}
+
 \begin{itemize}
   \item Developed and deployed a model for detecting false positive information security incidents.
   \item Built a service for automatic data collection and enrichment to support model production operations and experimentation.
@@ -64,18 +65,21 @@ Phone: +7 (936) 505-12-45 • Telegram: @daspiridonov\\
 \end{itemize}
 
 % --- Skills ---
-\section*{TECHNICAL SKILLS}
-\textbf{Programming Languages:} Python\\
-\textbf{Frameworks and Libraries:} FastAPI, vLLM, pandas, numpy, sklearn, catboost, pytorch\\
-\textbf{Infrastructure:} docker, docker-compose, airflow, mlflow, minio, grafana\\
-\textbf{Visualization:} matplotlib, seaborn, plotly\\
-\textbf{CI/CD:} gitlab CI\\
+\section*{Technical Skills}
+\textbf{Programming Languages:} Python
+
+\textbf{Frameworks and Libraries:} FastAPI, vLLM, pandas, numpy, sklearn, catboost, pytorch
+
+\textbf{Infrastructure:} docker, docker-compose, airflow, mlflow, minio, grafana
+
+\textbf{Visualization:} matplotlib, seaborn, plotly
+
+\textbf{CI/CD:} gitlab CI
+
 \textbf{Tools:} ruff, uv
 
 % --- About ---
-\section*{ABOUT}
-Specializing in machine learning and data processing, particularly classical ML and NLP.  
-Experience in designing and production deployment of ML services, as well as development automation and monitoring.  
-4th year student in Computer Security program.
+\section*{About}
+Specializing in machine learning and data processing, particularly classical ML and NLP. Experience in designing and production deployment of ML services, as well as development automation and monitoring. 4th year student in Computer Security program.
 
 \end{document}

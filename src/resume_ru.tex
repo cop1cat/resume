@@ -7,16 +7,21 @@
 \setotherlanguage{english}
 
 % --- Fonts with Cyrillic support ---
-\setmainfont{DejaVu Serif}
-\setsansfont{DejaVu Sans}
-\setmonofont{DejaVu Sans Mono}
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
 
 % --- Page layout and formatting ---
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{parskip}
+
+% --- Remove paragraph indentation ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
 
 % --- Link colors ---
 \hypersetup{
@@ -31,36 +36,32 @@
   {}
   {0pt}
   {}
-  [\titlerule]
+  [\vspace{-8pt}\titlerule\vspace{2pt}]
 
-\titleformat{\subsection}
-  {\bfseries}
-  {}
-  {0pt}
-  {}
-
-\titlespacing{\section}{0pt}{1em}{0.5em}
-\titlespacing{\subsection}{0pt}{0.5em}{0.2em}
-\setlist[itemize]{leftmargin=1.2cm, itemsep=2pt}
+\titlespacing{\section}{0pt}{8pt}{4pt}
+\setlist[itemize]{leftmargin=5mm, itemsep=2pt, topsep=2pt}
 
 \begin{document}
 \pagestyle{empty}
 
 % --- Header ---
 \begin{center}
-{\LARGE \textbf{ДАНИИЛ СПИРИДОНОВ}}\\[6pt]
+{\huge \textbf{ДАНИИЛ СПИРИДОНОВ}}\\[4pt]
 Телефон: +7 (936) 505-12-45 • Telegram: @daspiridonov\\
 \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}
 \end{center}
 
+\vspace{4pt}
+
 % --- Education ---
-\section*{ОБРАЗОВАНИЕ}
+\section*{Образование}
 \textbf{НИУ ВШЭ}, ОП «Компьютерная безопасность»\\
 2022 — по наст. время (ожидается окончание в 2028)
 
 % --- Experience ---
-\section*{ОПЫТ РАБОТЫ}
+\section*{Опыт работы}
 \textbf{РТ-ИБ — ML-инженер}\hfill \textit{Декабрь 2024 — настоящее время}
+
 \begin{itemize}
   \item Разработал и внедрил модель для выявления ложноположительных инцидентов информационной безопасности.
   \item Разработал сервис для автоматического сбора и дообогащения данных, обеспечивающих работу модели в продакшне и проведение экспериментов.
@@ -70,18 +71,21 @@
 \end{itemize}
 
 % --- Skills ---
-\section*{ТЕХНИЧЕСКИЕ НАВЫКИ}
-\textbf{Языки программирования:} Python\\
-\textbf{Фреймворки и библиотеки:} FastAPI, vLLM, pandas, numpy, sklearn, catboost, pytorch\\
-\textbf{Инфраструктура:} docker, docker-compose, airflow, mlflow, minio, grafana\\
-\textbf{Визуализация:} matplotlib, seaborn, plotly\\
-\textbf{CI/CD:} gitlab CI\\
+\section*{Технические навыки}
+\textbf{Языки программирования:} Python
+
+\textbf{Фреймворки и библиотеки:} FastAPI, vLLM, pandas, numpy, sklearn, catboost, pytorch
+
+\textbf{Инфраструктура:} docker, docker-compose, airflow, mlflow, minio, grafana
+
+\textbf{Визуализация:} matplotlib, seaborn, plotly
+
+\textbf{CI/CD:} gitlab CI
+
 \textbf{Инструменты:} ruff, uv
 
 % --- About ---
-\section*{О СЕБЕ}
-Специализируюсь на машинном обучении и обработке данных, в частности классическом ML и NLP.  
-Опыт в проектировании и продакшн-внедрении ML-сервисов, а также автоматизации разработки и мониторинга.  
-Учусь на 4-м курсе направления «Компьютерная безопасность».
+\section*{О себе}
+Специализируюсь на машинном обучении и обработке данных, в частности классическом ML и NLP. Опыт в проектировании и продакшн-внедрении ML-сервисов, а также автоматизации разработки и мониторинга. Учусь на 4-м курсе направления «Компьютерная безопасность».
 
 \end{document}
