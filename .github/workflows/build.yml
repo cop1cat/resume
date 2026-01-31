@@ -18,10 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Install fonts
+    - name: Install CMU fonts
       run: |
         sudo apt-get update
-        sudo apt-get install -y fonts-dejavu fonts-liberation
+        sudo apt-get install -y fonts-cmu
     
     - name: Compile Russian resume
       uses: xu-cheng/latex-action@v3
@@ -29,7 +29,7 @@ jobs:
         root_file: resume_ru.tex
         working_directory: src
         compiler: xelatex
-
+    
     - name: Compile English resume
       uses: xu-cheng/latex-action@v3
       with:
