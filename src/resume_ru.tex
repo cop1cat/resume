@@ -1,15 +1,9 @@
 \documentclass[a4paper,11pt]{article}
 
-% --- XeLaTeX packages for Russian ---
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\setmainlanguage{russian}
-\setotherlanguage{english}
-
-% --- Fonts ---
-\setmainfont{Latin Modern Roman}
-\setsansfont{Latin Modern Sans}
-\setmonofont{Latin Modern Mono}
+% --- Encoding and language ---
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
 
 % --- Page layout and formatting ---
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
@@ -27,10 +21,10 @@
 
 % --- Section formatting ---
 \titleformat{\section}
-  {\large\bfseries}
+  {\large\bfseries\MakeUppercase}
   {}
   {0pt}
-  {\MakeUppercase}
+  {}
   [\titlerule]
 
 \titlespacing{\section}{0pt}{1em}{0.5em}
@@ -79,6 +73,6 @@
 
 % --- About ---
 \section*{О себе}
-Специализируюсь на машинном обучении и обработке данных, в частности классическом ML и NLP. Опыт в проектировании и продакшн-внедрении ML-сервisов, а также автоматизации разработки и мониторинга. Учусь на 4-м курсе направления «Компьютерная безопасность».
+Специализируюсь на машинном обучении и обработке данных, в частности классическом ML и NLP. Опыт в проектировании и продакшн-внедрении ML-сервисов, а также автоматизации разработки и мониторинга. Учусь на 4-м курсе направления «Компьютерная безопасность».
 
 \end{document}
