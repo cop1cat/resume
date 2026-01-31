@@ -29,6 +29,8 @@ jobs:
         root_file: resume_ru.tex
         working_directory: src
         compiler: xelatex
+        extra_fonts: |
+          /usr/share/fonts/truetype/cmu/*
     
     - name: Compile English resume
       uses: xu-cheng/latex-action@v3

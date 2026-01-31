@@ -7,7 +7,15 @@
 \setotherlanguage{english}
 
 % --- Fonts ---
-\setmainfont{CMU Serif}
+% --- Fonts ---
+\setmainfont{CMU Serif}[
+  Extension=.otf,
+  UprightFont=*-Roman,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic
+]
+\newfontfamily\cyrillicfont{CMU Serif}[Script=Cyrillic]
 \setsansfont{CMU Sans Serif}
 \setmonofont{CMU Typewriter Text}
 
