@@ -28,7 +28,7 @@ jobs:
       with:
         root_file: resume_ru.tex
         working_directory: src
-        compiler: xelatex
+        compiler: lualatex
     
     - name: Compile English resume
       uses: xu-cheng/latex-action@v3
