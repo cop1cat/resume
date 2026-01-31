@@ -1,9 +1,15 @@
 \documentclass[a4paper,11pt]{article}
 
-% --- Encoding and language ---
-\usepackage[T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}
+% --- XeLaTeX packages for Russian ---
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setotherlanguage{english}
+
+% --- Fonts ---
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
 
 % --- Page layout and formatting ---
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
@@ -43,11 +49,11 @@
 % --- Education ---
 \section*{Образование}
 \textbf{НИУ ВШЭ}, ОП «Компьютерная безопасность»\\
-2022 — по наст. (ожидается окончание в 2028)
+2022 --- по наст. (ожидается окончание в 2028)
 
 % --- Experience ---
 \section*{Опыт работы}
-\textbf{РТ-ИБ — ML-инженер}\hfill \textit{Декабрь 2024 — настоящее время}
+\textbf{РТ-ИБ --- ML-инженер}\hfill \textit{Декабрь 2024 --- настоящее время}
 
 \begin{itemize}
   \item Разработал и внедрил модель для выявления ложноположительных инцидентов информационной безопасности.
@@ -59,11 +65,16 @@
 
 % --- Skills ---
 \section*{Технические навыки}
-\textbf{Языки программирования:} Python\\
-\textbf{Фреймворки и библиотеки:} FastAPI, vLLM, pandas, numpy, sklearn, catboost, pytorch\\
-\textbf{Инфраструктура:} docker, docker-compose, airflow, mlflow, minio, grafana\\
-\textbf{Визуализация:} matplotlib, seaborn, plotly\\
-\textbf{CI/CD:} gitlab CI\\
+\textbf{Языки программирования:} Python
+
+\textbf{Фреймворки и библиотеки:} FastAPI, vLLM, pandas, numpy, sklearn, catboost, pytorch
+
+\textbf{Инфраструктура:} docker, docker-compose, airflow, mlflow, minio, grafana
+
+\textbf{Визуализация:} matplotlib, seaborn, plotly
+
+\textbf{CI/CD:} gitlab CI
+
 \textbf{Инструменты:} ruff, uv
 
 % --- About ---
