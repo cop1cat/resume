@@ -18,6 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Install fonts
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y fonts-dejavu fonts-liberation
+    
     - name: Compile Russian resume
       uses: xu-cheng/latex-action@v3
       with:
@@ -30,6 +35,7 @@ jobs:
       with:
         root_file: resume_en.tex
         working_directory: src
+        compiler: pdflatex
     
     - name: Create dist directory
       run: mkdir -p dist
