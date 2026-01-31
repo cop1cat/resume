@@ -41,45 +41,55 @@
 % --- Header ---
 \begin{center}
 {\huge \textbf{DANIIL SPIRIDONOV}}\\[4pt]
-Phone: +7 (936) 505-12-45 • Telegram: @daspiridonov\\
-\href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}
+Phone: +7 (936) 505-12-45 • Telegram: @daspiridonov • \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
+\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov}
 \end{center}
 
 \vspace{4pt}
 
-% --- Education ---
-\section*{Education}
-\textbf{HSE University}, Computer Security Program\\
-2022 --- present (expected graduation in 2028)
+% --- About ---
+\section*{Summary}
+Machine Learning Engineer specializing in classical ML and NLP. I build production systems and automate ML workflows. Studying Cybersecurity at HSE. Interested in full-stack ML: modeling, pipelines, and infrastructure.
 
 % --- Experience ---
 \section*{Work Experience}
-\textbf{RT-IB --- ML Engineer}\hfill \textit{December 2024 --- present}
+\textbf{RT Information Security --- Machine Learning Engineer}\hfill \textit{December 2024 --- present}
 
 \begin{itemize}
-  \item Developed and deployed a model for detecting false positive information security incidents.
-  \item Built a service for automatic data collection and enrichment to support model production operations and experimentation.
-  \item Worked with LLM models to automate SOC center processes.
-  \item Implemented linters and static code analysis as development standards.
-  \item Developed a common CI/CD pipeline for production deployment of services.
+  \item Developed an automated classification system for false positive alerts in information security events with rule-based filtering
+  \item Developed an automated rule generation system for filtering information security incidents using LLM and regular expressions
+  \item Refactored the automated incident correlation system for information security: redesigned monolith into modular architecture with independent components
+  \item Developed a monitoring and anomaly detection system for information security events and incidents: identifying drops, short-term spikes, and long-term trends
+  \item Developed internal libraries for building ML data processing pipelines and constructing ensembles from modules with different training cycles
+  \item Developed an ETL system for automated collection and normalization of data from non-standardized JSON sources
+  \item Implemented CI/CD for ML services: unified deployment format and automated application deployment
+  \item Implemented code quality standards: linters, static analyzers, docstrings for unified development style across the team
+  \item Standardized DAG development in Airflow for ML pipelines
+  \item Implemented MinIO for versioning datasets and model artifacts
 \end{itemize}
 
-% --- Skills ---
+% --- Technical Skills ---
 \section*{Technical Skills}
-\textbf{Programming Languages:} Python
+\textbf{Programming:} Python (primary), C++, SQL
 
-\textbf{Frameworks and Libraries:} FastAPI, vLLM, pandas, numpy, sklearn, catboost, pytorch
+\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch, vLLM
 
-\textbf{Infrastructure:} docker, docker-compose, airflow, mlflow, minio, grafana
+\textbf{Data Processing:} pandas, numpy
 
-\textbf{Visualization:} matplotlib, seaborn, plotly
+\textbf{MLOps:} GitLab CI/CD, Linux, Docker, docker-compose
 
-\textbf{CI/CD:} gitlab CI
+\textbf{Web Frameworks:} FastAPI
 
-\textbf{Tools:} ruff, uv
+\textbf{Infrastructure:} Airflow, MLflow, Langfuse, MinIO
 
-% --- About ---
-\section*{About}
-Specializing in machine learning and data processing, particularly classical ML and NLP. Experience in designing and production deployment of ML services, as well as development automation and monitoring. 4th year student in Computer Security program.
+\textbf{Visualization:} Grafana, matplotlib, seaborn, plotly
+
+\textbf{Development Tools:} ruff, mypy, uv, git
+
+% --- Education ---
+\section*{Education}
+\textbf{HSE University}, Bachelor of Computer Science\\
+Computer and Information Systems Security/Information Assurance\\
+\textit{2022 --- 2028 (expected)}
 
 \end{document}
