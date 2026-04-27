@@ -1,25 +1,30 @@
 \documentclass[a4paper,11pt]{article}
 
-% --- Encoding and language ---
+% - Encoding and language -
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
 
-% --- Page layout and formatting ---
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+% - Page layout and formatting -
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{parskip}
 
-% --- Link colors ---
+% - Remove paragraph indentation -
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% - Link colors -
 \hypersetup{
   colorlinks=true,
   urlcolor=blue,
   linkcolor=black
 }
 
-% --- Section formatting ---
+% - Section formatting -
 \titleformat{\section}
   {\large\bfseries}
   {}
@@ -33,56 +38,58 @@
 \begin{document}
 \pagestyle{empty}
 
-% --- Header ---
+% - Header -
 \begin{center}
-{\LARGE \textbf{ДАНИИЛ СПИРИДОНОВ}}\\[6pt]
-Телефон: +7 (936) 505-12-45 • Telegram: @daspiridonov\\
-\href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru} • \href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov}
+{\huge \textbf{ДАНИИЛ СПИРИДОНОВ}}\\[4pt]
+Телефон: +7 (936) 505-12-45 • Telegram: \href{https://t.me/daspiridonov}{@daspiridonov} • \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
+\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov} • \href{https://github.com/cop1cat}{github.com/cop1cat}
 \end{center}
 
-% --- About ---
-\section*{О СЕБЕ}
-Занимаюсь машинным обучением, специализируюсь на классическом ML и NLP. Разрабатываю продакшн-системы и автоматизирую ML-процессы. Обучаюсь на 4 курсе по направлению «Компьютерная безопасность» в НИУ ВШЭ.
+\vspace{4pt}
 
-% --- Experience ---
-\section*{ОПЫТ РАБОТЫ}
-\textbf{РТ-ИБ --- Инженер машинного обучения}\hfill \textit{Декабрь 2024 --- настоящее время}
+% - About -
+\section*{О себе}
+ML-инженер с 1,5 годами опыта в продакшне. Работаю с классическим ML, LLM и MLOps. Студент 4 курса НИУ ВШЭ.
+
+% - Experience -
+\section*{Опыт работы}
+\textbf{РТ-ИБ - Инженер машинного обучения}\hfill \textit{Декабрь 2024 - н.\,в.}
 
 \begin{itemize}
-  \item Разработал автоматизированную систему классификации ложноположительных оповещений в событиях информационной безопасности с фильтрацией на основе правил
-  \item Разработал автоматизированную систему генерации правил для фильтрации инцидентов информационной безопасности с использованием LLM и регулярных выражений
-  \item Провел рефакторинг автоматизированной системы корреляции инцидентов информационной безопасности: переработал монолитную архитектуру в модульную с независимыми компонентами
-  \item Разработал систему мониторинга и обнаружения аномалий для событий и инцидентов информационной безопасности: выявление падений, краткосрочных всплесков и долгосрочных трендов
-  \item Разработал внутренние библиотеки для построения пайплайнов обработки ML-данных и создания ансамблей из модулей с различными циклами обучения
-  \item Разработал ETL-систему для автоматизированного сбора и нормализации данных из нестандартизированных JSON-источников
-  \item Внедрил CI/CD для ML-сервисов: унифицированный формат развертывания и автоматизированный деплой приложений
-  \item Внедрил стандарты качества кода: линтеры, статические анализаторы, docstring для единого стиля разработки в команде
-  \item Стандартизировал разработку DAG в Airflow для ML-пайплайнов
-  \item Внедрил MinIO для версионирования датасетов и артефактов моделей
+  \item Классификатор алертов на CatBoost с пайплайном обучения (PCA и кастомные эмбеддинги доменно-специфичных текстовых данных) и многопоточным онлайн-инференсом с горячим обновлением весов в работающем сервисе. Снизил долю ложноположительных срабатываний на 20--25\%
+  \item Многоступенчатый пайплайн генерации текстовых исключений: предфильтрация регулярными выражениями, дедупликация на основе расстояния Левенштейна, LLM-этап с самовалидацией через LangGraph; инференс развёрнут на self-hosted vLLM
+  \item Production-сервис LLM-агента на Python и LangGraph: спроектировал граф состояний и набор инструментов, добавил structured output, сжатие контекста между шагами и observability через Langfuse
+  \item Детектор аномалий в потоке событий для автоматического алертинга заказчиков. Для жёстких падений - z-score с робастными правилами (отбрасывание длинных окон, cold-start логика для метрик без истории падений). Для мягких - декомпозиция временного ряда с учётом сезонности по часу и дню недели и квантильный порог. Результаты публикуются в RabbitMQ и сохраняются в PostgreSQL
+  \item Переработал внутреннюю архитектуру retrieval-сервиса: разделил слабосвязанные компоненты, упростил замену моделей ретривала без правок бизнес-логики
+  \item Внутренний MLOps-тулинг: pip-пакет для построения ML-пайплайнов, ускоривший разработку моделей в команде; CI/CD ML-сервисов с docker-compose-деплоем; MinIO для версионирования датасетов и артефактов моделей; командные стандарты code quality (ruff, mypy, docstrings)
 \end{itemize}
 
-% --- Skills ---
-\section*{ТЕХНИЧЕСКИЕ НАВЫКИ}
-\textbf{Программирование:} Python (основной), C++, SQL
+% - Skills -
+\section*{Технические навыки}
+\textbf{Языки программирования:} Python (основной), SQL
 
-\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch, vLLM
+\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch
+
+\textbf{LLM:} vLLM, LangGraph, Langfuse
 
 \textbf{Обработка данных:} pandas, numpy
 
-\textbf{MLOps:} GitLab CI/CD, Linux, Docker, docker-compose
+\textbf{Инфраструктура:} Airflow, Prefect, MLflow, MinIO, PostgreSQL, RabbitMQ
+
+\textbf{MLOps:} GitLab CI/CD, Docker, docker-compose, Linux
 
 \textbf{Веб-фреймворки:} FastAPI
-
-\textbf{Инфраструктура:} Airflow, MLflow, Langfuse, MinIO
 
 \textbf{Визуализация:} Grafana, matplotlib, seaborn, plotly
 
 \textbf{Инструменты разработки:} ruff, mypy, uv, git
 
-% --- Education ---
-\section*{ОБРАЗОВАНИЕ}
+\textbf{Иностранные языки:} английский
+
+% - Education -
+\section*{Образование}
 \textbf{НИУ ВШЭ}, Специалитет\\
 Образовательная программа «Компьютерная безопасность»\\
-\textit{2022 --- 2028 (ожидается)}
+\textit{2022 - 2028 (ожидается)}
 
 \end{document}

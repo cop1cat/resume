@@ -41,55 +41,55 @@
 % --- Header ---
 \begin{center}
 {\huge \textbf{DANIEL SPIRIDONOV}}\\[4pt]
-Phone: +7 (936) 505-12-45 • Telegram: @daspiridonov • \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
-\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov}
+Phone: +7 (936) 505-12-45 • Telegram: \href{https://t.me/daspiridonov}{@daspiridonov} • \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
+\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov} • \href{https://github.com/cop1cat}{github.com/cop1cat}
 \end{center}
 
 \vspace{4pt}
 
 % --- About ---
 \section*{Summary}
-Machine Learning Engineer specializing in classical ML and NLP. I build production systems and automate ML workflows. 4th year Cybersecurity student at HSE.
+ML Engineer with 1.5 years of production experience. I work with classical ML, LLMs, and MLOps. 4th-year student at HSE University.
+
 % --- Experience ---
 \section*{Work Experience}
 \textbf{RT Information Security --- Machine Learning Engineer}\hfill \textit{December 2024 --- present}
 
 \begin{itemize}
-  \item Developed an automated classification system for false positive alerts in information security events with rule-based filtering
-  \item Developed an automated rule generation system for filtering information security incidents using LLM and regular expressions
-  \item Refactored the automated incident correlation system for information security: redesigned monolith into modular architecture with independent components
-  \item Developed a monitoring and anomaly detection system for information security events and incidents: identifying drops, short-term spikes, and long-term trends
-  \item Developed internal libraries for building ML data processing pipelines and constructing ensembles from modules with different training cycles
-  \item Developed an ETL system for automated collection and normalization of data from non-standardized JSON sources
-  \item Implemented CI/CD for ML services: unified deployment format and automated application deployment
-  \item Implemented code quality standards: linters, static analyzers, docstrings for unified development style across the team
-  \item Standardized DAG development in Airflow for ML pipelines
-  \item Implemented MinIO for versioning datasets and model artifacts
+  \item CatBoost classifier for alerts with a training pipeline (PCA and custom embeddings of domain-specific text data) and multi-threaded online inference with hot-swap weight updates in a running service. Reduced the false-positive rate by 20--25\%
+  \item Multi-stage pipeline for automated text-exception generation: regex pre-filter, deduplication based on Levenshtein distance, and an LLM stage with self-validation through LangGraph; inference deployed on self-hosted vLLM
+  \item Production LLM-agent service on Python and LangGraph: designed the state graph and tool set, added structured output, inter-step context compression, and observability via Langfuse
+  \item Anomaly detector over the event stream for automated customer alerting. For hard drops --- z-score with robustness rules (long-window rejection, cold-start logic for metrics without prior outages). For soft degradations --- time-series decomposition with hour-of-day and day-of-week seasonality plus a quantile threshold. Results are published to RabbitMQ and persisted in PostgreSQL
+  \item Reworked the internal architecture of a retrieval service: decoupled loosely related components, made it possible to swap retrieval models without touching business logic
+  \item Internal MLOps tooling: a pip package for ML pipelines that accelerated new-model development across the team; CI/CD for ML services with docker-compose deployment; MinIO for dataset and model-artifact versioning; team-wide code-quality standards (ruff, mypy, docstrings)
 \end{itemize}
 
 % --- Technical Skills ---
 \section*{Technical Skills}
-\textbf{Programming:} Python (primary), C++, SQL
+\textbf{Programming Languages:} Python (primary), SQL
 
-\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch, vLLM
+\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch
+
+\textbf{LLM:} vLLM, LangGraph, Langfuse
 
 \textbf{Data Processing:} pandas, numpy
 
-\textbf{MLOps:} GitLab CI/CD, Linux, Docker, docker-compose
+\textbf{Infrastructure:} Airflow, Prefect, MLflow, MinIO, PostgreSQL, RabbitMQ
+
+\textbf{MLOps:} GitLab CI/CD, Docker, docker-compose, Linux
 
 \textbf{Web Frameworks:} FastAPI
-
-\textbf{Infrastructure:} Airflow, MLflow, Langfuse, MinIO
 
 \textbf{Visualization:} Grafana, matplotlib, seaborn, plotly
 
 \textbf{Development Tools:} ruff, mypy, uv, git
 
+\textbf{Spoken Languages:} English, Russian (native)
+
 % --- Education ---
 \section*{Education}
-\textbf{HSE University}, Specialist Degree\\
+\textbf{HSE University}, Specialist Degree (5-year, equivalent to MSc)\\
 Computer and Information Systems Security\\
-5-year integrated program (Bachelor's + Master's equivalent)\\
 \textit{2022 --- 2028 (expected)}
 
 \end{document}
