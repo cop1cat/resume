@@ -41,50 +41,60 @@
 % --- Header ---
 \begin{center}
 {\huge \textbf{DANIEL SPIRIDONOV}}\\[4pt]
-Phone: +7 (936) 505-12-45 • Telegram: \href{https://t.me/daspiridonov}{@daspiridonov} • \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
-\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov} • \href{https://github.com/cop1cat}{github.com/cop1cat}
+Machine Learning Engineer\\[2pt]
+Moscow, Russia\\[2pt]
+Phone: +7 (936) 505-12-45 | Telegram: \href{https://t.me/daspiridonov}{@daspiridonov} | \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
+\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov} | \href{https://github.com/cop1cat}{github.com/cop1cat}
 \end{center}
 
 \vspace{4pt}
 
 % --- About ---
 \section*{Summary}
-ML Engineer with 1.5 years of production experience. I work with classical ML, LLMs, and MLOps. 4th-year student at HSE University.
+ML Engineer with 1.5 years of production experience. Interested in engineering ML/LLM systems: agentic pipelines, inference infrastructure, MLOps. 4th-year student at HSE University.
 
 % --- Experience ---
 \section*{Work Experience}
-\textbf{RT Information Security --- Machine Learning Engineer}\hfill \textit{December 2024 --- present}
+\textbf{RT Information Security --- Machine Learning Engineer}\hfill \textit{Dec 2024 - Present}
 
 \begin{itemize}
-  \item CatBoost classifier for alerts with a training pipeline (PCA and custom embeddings of domain-specific text data) and multi-threaded online inference with hot-swap weight updates in a running service. Reduced the false-positive rate by 20--25\%
-  \item Multi-stage pipeline for automated text-exception generation: regex pre-filter, deduplication based on Levenshtein distance, and an LLM stage with self-validation through LangGraph; inference deployed on self-hosted vLLM
-  \item Production LLM-agent service on Python and LangGraph: designed the state graph and tool set, added structured output, inter-step context compression, and observability via Langfuse
-  \item Anomaly detector over the event stream for automated customer alerting. For hard drops --- z-score with robustness rules (long-window rejection, cold-start logic for metrics without prior outages). For soft degradations --- time-series decomposition with hour-of-day and day-of-week seasonality plus a quantile threshold. Results are published to RabbitMQ and persisted in PostgreSQL
-  \item Reworked the internal architecture of a retrieval service: decoupled loosely related components, made it possible to swap retrieval models without touching business logic
-  \item Internal MLOps tooling: a pip package for ML pipelines that accelerated new-model development across the team; CI/CD for ML services with docker-compose deployment; MinIO for dataset and model-artifact versioning; team-wide code-quality standards (ruff, mypy, docstrings)
+  \item Designed and shipped a CatBoost alert classifier: training pipeline with PCA and custom embeddings of domain-specific text; multi-threaded online inference with hot-swap weight updates without service restart. Reduced the false-positive rate by 20--25\%
+  \item Built a multi-stage pipeline for automated text-exception generation: regex pre-filter, Levenshtein-distance deduplication, an LLM stage with self-validation via LangGraph, inference on self-hosted vLLM. Covers \textasciitilde 70\% of all required filters, including complex cases; previously every exception was written by hand, now an analyst only reviews the generated ones
+  \item Shipped a production LLM-agent service (Python, LangGraph) for incident triage: state graph, tool set, structured output, inter-step context compression, observability via Langfuse. Produces a full incident breakdown used by analysts as a reference when deciding on escalation
+  \item Designed and deployed an anomaly detector over \textasciitilde 100 event sources with automatic method selection (z-score for hard drops, time-series decomposition with seasonality and a quantile threshold for soft degradations). Pipeline runs every 10 minutes; results go to RabbitMQ and PostgreSQL
+  \item Refactored the architecture of an automatic incident-grouping service (finds a similar incident and sets a parent/child link): decoupled loosely related components, simplified swapping retrieval models and comparing them. The service covers \textasciitilde 15\% of all groupings
+  \item Built a pip package for feature and inference pipeline construction with Optuna-based hyperparameter search --- became the team standard, accelerated new-project bootstrapping several-fold
+  \item Set up the team's MLOps infrastructure: CI/CD for ML services with docker-compose deployment, MinIO for dataset and model-artifact versioning, team-wide code-quality standards (ruff, mypy, docstrings)
+  \item Participated in technical interviews of candidates and onboarding of new team members
 \end{itemize}
 
 % --- Technical Skills ---
 \section*{Technical Skills}
-\textbf{Programming Languages:} Python (primary), SQL
+\textbf{Programming Languages:} Python, SQL
 
-\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch
+\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch, pandas, numpy
 
 \textbf{LLM:} vLLM, LangGraph, Langfuse
 
-\textbf{Data Processing:} pandas, numpy
+\textbf{MLOps:} Docker, docker-compose, GitLab CI/CD, Airflow, Prefect, MLflow, MinIO, Linux
 
-\textbf{Infrastructure:} Airflow, Prefect, MLflow, MinIO, PostgreSQL, RabbitMQ
-
-\textbf{MLOps:} GitLab CI/CD, Docker, docker-compose, Linux
-
-\textbf{Web Frameworks:} FastAPI
+\textbf{Backend \& Storage:} FastAPI, PostgreSQL
 
 \textbf{Visualization:} Grafana, matplotlib, seaborn, plotly
 
-\textbf{Development Tools:} ruff, mypy, uv, git
+\textbf{Dev Tools:} git, ruff, mypy, uv
 
-\textbf{Spoken Languages:} English, Russian (native)
+\textbf{Spoken Languages:} English (B2), Russian (native)
+
+% --- Pet projects ---
+\section*{Pet Projects}
+\href{https://github.com/cop1cat}{github.com/cop1cat}
+\begin{itemize}
+  \item fluxio --- streamable, durable pipeline runtime for Python backends
+  \item catboost-utils --- UX wrapper over CatBoost
+  \item snowcite --- MCP server for systematic literature review
+  \item vaultly --- declarative Pydantic-native secrets manager
+\end{itemize}
 
 % --- Education ---
 \section*{Education}

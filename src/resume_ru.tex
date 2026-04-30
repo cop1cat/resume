@@ -40,51 +40,61 @@
 
 % - Header -
 \begin{center}
-{\huge \textbf{ДАНИИЛ СПИРИДОНОВ}}\\[4pt]
-Телефон: +7 (936) 505-12-45 • Telegram: \href{https://t.me/daspiridonov}{@daspiridonov} • \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
-\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov} • \href{https://github.com/cop1cat}{github.com/cop1cat}
+{\huge \textbf{Даниил Спиридонов}}\\[4pt]
+Machine Learning Engineer\\[2pt]
+Москва, Россия\\[2pt]
+Телефон: +7 (936) 505-12-45 | Telegram: \href{https://t.me/daspiridonov}{@daspiridonov} | \href{mailto:sprv-4@yandex.ru}{sprv-4@yandex.ru}\\
+\href{https://www.linkedin.com/in/daniel-spiridonov/}{linkedin.com/in/daniel-spiridonov} | \href{https://github.com/cop1cat}{github.com/cop1cat}
 \end{center}
 
 \vspace{4pt}
 
 % - About -
 \section*{О себе}
-ML-инженер с 1,5 годами опыта в продакшне. Работаю с классическим ML, LLM и MLOps. Студент 4 курса НИУ ВШЭ.
+ML-инженер с 1,5 годами опыта в продакшне. Интересна инженерия ML/LLM-систем: агентские пайплайны, инференс-инфраструктура, MLOps. Студент 4 курса НИУ ВШЭ.
 
 % - Experience -
 \section*{Опыт работы}
 \textbf{РТ-ИБ - Инженер машинного обучения}\hfill \textit{Декабрь 2024 - н.\,в.}
 
 \begin{itemize}
-  \item Классификатор алертов на CatBoost с пайплайном обучения (PCA и кастомные эмбеддинги доменно-специфичных текстовых данных) и многопоточным онлайн-инференсом с горячим обновлением весов в работающем сервисе. Снизил долю ложноположительных срабатываний на 20--25\%
-  \item Многоступенчатый пайплайн генерации текстовых исключений: предфильтрация регулярными выражениями, дедупликация на основе расстояния Левенштейна, LLM-этап с самовалидацией через LangGraph; инференс развёрнут на self-hosted vLLM
-  \item Production-сервис LLM-агента на Python и LangGraph: спроектировал граф состояний и набор инструментов, добавил structured output, сжатие контекста между шагами и observability через Langfuse
-  \item Детектор аномалий в потоке событий для автоматического алертинга заказчиков. Для жёстких падений - z-score с робастными правилами (отбрасывание длинных окон, cold-start логика для метрик без истории падений). Для мягких - декомпозиция временного ряда с учётом сезонности по часу и дню недели и квантильный порог. Результаты публикуются в RabbitMQ и сохраняются в PostgreSQL
-  \item Переработал внутреннюю архитектуру retrieval-сервиса: разделил слабосвязанные компоненты, упростил замену моделей ретривала без правок бизнес-логики
-  \item Внутренний MLOps-тулинг: pip-пакет для построения ML-пайплайнов, ускоривший разработку моделей в команде; CI/CD ML-сервисов с docker-compose-деплоем; MinIO для версионирования датасетов и артефактов моделей; командные стандарты code quality (ruff, mypy, docstrings)
+  \item Спроектировал и разработал классификатор алертов на CatBoost: пайплайн обучения с PCA и кастомными эмбеддингами доменно-специфичных текстов; многопоточный онлайн-инференс с горячим обновлением весов без рестарта сервиса. Снизил долю ложноположительных срабатываний на 20--25\%
+  \item Выстроил многоступенчатый пайплайн генерации текстовых исключений: предфильтрация регулярными выражениями, дедупликация по расстоянию Левенштейна, LLM-генерацией с самовалидацией через LangGraph, инференс на self-hosted vLLM. Покрывает \textasciitilde 70\% всех необходимых фильтраций, включая комплексные кейсы; ранее каждое исключение писалось вручную, теперь аналитик ревьюит сгенерированные
+  \item Запустил production-сервис LLM-агента (Python, LangGraph) для triage инцидентов: граф состояний, набор инструментов, structured output, сжатие контекста между шагами, observability через Langfuse. Готовит полный разбор инцидента и используется аналитиком как референс при принятии решения об эскалации
+  \item Спроектировал и внедрил детектор аномалий по \textasciitilde 100 источникам событий с автоматическим выбором метода (z-score для жёстких падений, декомпозиция временного ряда с сезонностью и квантильным порогом для мягких отклонений). Пайплайн запускается раз в 10 минут, результаты идут в RabbitMQ и PostgreSQL
+  \item Отрефакторил архитектуру сервиса автоматической группировки инцидентов (поиск похожего инцидента и проставление parent/child-связи): разделил слабосвязанные компоненты, упростил замену моделей ретривала и сравнение их между собой. Сервис покрывает \textasciitilde 15\% всех группировок
+  \item Разработал pip-пакет для построения фичевых и инференс-пайплайнов с подбором гиперпараметров через Optuna -- стал стандартом в команде, ускорил старт нового ML-проекта в несколько раз
+  \item Выстроил MLOps-инфраструктуру команды: CI/CD ML-сервисов с docker-compose-деплоем, MinIO для версионирования датасетов и артефактов, командные стандарты code quality (ruff, mypy, docstrings)
+  \item Проводил технические собеседования кандидатов и участвовал в онбординге новых членов команды
 \end{itemize}
 
 % - Skills -
 \section*{Технические навыки}
-\textbf{Языки программирования:} Python (основной), SQL
+\textbf{Языки программирования:} Python, SQL
 
-\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch
+\textbf{ML/DL:} scikit-learn, CatBoost, XGBoost, PyTorch, pandas, numpy
 
 \textbf{LLM:} vLLM, LangGraph, Langfuse
 
-\textbf{Обработка данных:} pandas, numpy
+\textbf{MLOps:} Docker, docker-compose, GitLab CI/CD, Airflow, Prefect, MLflow, MinIO, Linux
 
-\textbf{Инфраструктура:} Airflow, Prefect, MLflow, MinIO, PostgreSQL, RabbitMQ
-
-\textbf{MLOps:} GitLab CI/CD, Docker, docker-compose, Linux
-
-\textbf{Веб-фреймворки:} FastAPI
+\textbf{Бэкенд и хранилища:} FastAPI, PostgreSQL
 
 \textbf{Визуализация:} Grafana, matplotlib, seaborn, plotly
 
-\textbf{Инструменты разработки:} ruff, mypy, uv, git
+\textbf{Dev-инструменты:} git, ruff, mypy, uv
 
-\textbf{Иностранные языки:} английский
+\textbf{Иностранные языки:} Английский (B2)
+
+% - Pet projects -
+\section*{Pet-проекты}
+\href{https://github.com/cop1cat}{github.com/cop1cat}
+\begin{itemize}
+  \item fluxio -- фреймворк для построения пайплайнов на Python: автоматическая параллелизация шагов, восстановление после падений, стриминг результатов
+  \item catboost-utils -- обёртка над CatBoost: читаемые ошибки, проверка данных перед обучением, удобные пользовательские функции потерь, интеграция со sklearn
+  \item snowcite -- MCP-сервер для систематических литературных обзоров: поиск по arXiv, Semantic Scholar, OpenAlex и PubMed, сборка обзора в PDF через LaTeX или Typst
+  \item vaultly -- менеджер секретов на основе Pydantic: ленивая подгрузка значений, кэширование с TTL, маскирование в логах
+\end{itemize}
 
 % - Education -
 \section*{Образование}
