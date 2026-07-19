@@ -48,21 +48,28 @@ Phone: +7 (936) 505-12-45 | Telegram: \href{https://t.me/daspiridonov}{@daspirid
 
 % --- About ---
 \section*{Summary}
-ML Engineer with 1.5 years of production experience. Interested in engineering ML/LLM systems: agentic pipelines, inference infrastructure, MLOps. 4th-year student at HSE University.
+ML Engineer with 1.5 years of commercial experience. Focus areas: LLM services and agentic pipelines, classical ML, MLOps. 5th-year student at HSE University.
 
 % --- Experience ---
 \section*{Work Experience}
 \textbf{RT Information Security --- Machine Learning Engineer}\hfill \textit{Dec 2024 - Present}
 
 \begin{itemize}
-  \item Built a CatBoost alert classifier: training with PCA and custom embeddings of domain text, multi-threaded online inference with hot-swap weights. 99\% recall on TP, 20--30\% on FP --- drops a portion of false alerts
-  \item Assembled a pipeline for text-exception generation: regex pre-filter, Levenshtein deduplication, an LLM stage with self-validation via LangGraph, inference on self-hosted vLLM. Rules used to be written by hand, now an analyst only reviews the generated ones --- covers \(\sim\)70\% of cases
-  \item Shipped a production LLM-agent service (Python, LangGraph) for incident triage: state graph, tools, structured output, inter-step context compression, observability via Langfuse. Produces an incident breakdown used by analysts as a reference before escalation
-  \item Deployed an anomaly detector over \(\sim\)100 event sources with auto method selection: z-score for source-down detection, time-series decomposition with seasonality and a quantile threshold for traffic anomalies. Runs every 10 minutes; results go to RabbitMQ and PostgreSQL
-  \item Refactored an incident-grouping service (finds a similar incident and sets a parent/child link): decoupled components, swapping retrieval models and comparing them became easier. Covers \(\sim\)15\% of all groupings
-  \item Wrote a pip package for feature and inference pipelines with Optuna hyperparameter search --- a team standard, speeds up new-project bootstrapping several-fold
-  \item Set up the team's MLOps infrastructure: CI/CD for ML services with docker-compose deployment, MinIO for dataset and model-artifact versioning, team-wide code-quality standards (ruff, mypy, docstrings)
-  \item Participated in technical interviews of candidates and onboarding of new team members
+  \item Built and shipped a production LLM agent for incident triage on LangGraph, cutting analyst review time by delivering a structured incident breakdown before escalation
+  \item Automated exception-rule writing with an LLM pipeline on self-hosted vLLM, covering \(\sim\)70\% of cases and replacing manual work with review of generated rules
+  \item Trained and deployed a CatBoost alert classifier that filters out \(\sim\)30\% of false positives while retaining 99\% of true ones
+  \item Deployed an anomaly detector across \(\sim\)100 event sources with automatic method selection, running in production on a 10-minute interval
+  \item Rewrote the incident-grouping service covering \(\sim\)15\% of all groupings, making retrieval models faster to swap and compare
+  \item Established the team's MLOps infrastructure (CI/CD, dataset and artifact versioning, code-quality standards), speeding up the start of new ML projects
+  \item Ran technical interviews for candidates and onboarding for new team members
+\end{itemize}
+
+\textbf{GameGlory (\href{https://gameglory.studio/}{gameglory.studio}) --- Machine Learning Engineer, project work}\hfill \textit{Oct 2025 - Present}
+
+\begin{itemize}
+  \item Built semantic competitor search based on game description and tags
+  \item Built LLM-based idea analysis: scoring across key aspects with recommendations and risk assessment
+  \item Set up data collection over Steam games catalogue and estimation of metrics unavailable directly (revenue, publisher tier)
 \end{itemize}
 
 % --- Technical Skills ---
@@ -70,7 +77,7 @@ ML Engineer with 1.5 years of production experience. Interested in engineering M
 \begin{itemize}
   \item \textbf{Programming Languages:} Python, SQL
   \item \textbf{Frameworks \& Libraries:} pandas, numpy, scikit-learn, CatBoost, XGBoost, PyTorch, FastAPI, LangGraph, vLLM, Langfuse
-  \item \textbf{MLOps \& Infrastructure:} Docker, GitLab CI/CD, Airflow, Prefect, MLflow, MinIO, PostgreSQL, Grafana
+  \item \textbf{MLOps \& Infrastructure:} Docker, GitLab CI/CD, Airflow, MLflow, MinIO, PostgreSQL, RabbitMQ, Grafana
   \item \textbf{Dev Tools:} git, ruff, mypy, uv
   \item \textbf{Spoken Languages:} English (B2), Russian (native)
 \end{itemize}
@@ -78,10 +85,7 @@ ML Engineer with 1.5 years of production experience. Interested in engineering M
 % --- Pet projects ---
 \section*{Pet Projects}
 \begin{itemize}
-  \item \href{https://github.com/cop1cat/fluxio}{\textbf{fluxio}} --- pipeline framework for Python with auto-parallelism, crash recovery, and streaming
-  \item \href{https://github.com/cop1cat/catboost-utils}{\textbf{catboost-utils}} --- CatBoost wrapper with readable errors, data validation, custom losses, sklearn integration
   \item \href{https://github.com/cop1cat/snowcite}{\textbf{snowcite}} --- MCP server for literature review: search across arXiv/Semantic Scholar/OpenAlex/PubMed, PDF via LaTeX/Typst
-  \item \href{https://github.com/cop1cat/vaultly}{\textbf{vaultly}} --- Pydantic-native secrets manager with lazy loading, TTL caching, and log masking
 \end{itemize}
 
 % --- Education ---
